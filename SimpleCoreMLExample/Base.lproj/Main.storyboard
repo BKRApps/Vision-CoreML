@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,13 +24,19 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="333.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Eh-X9-FnZ">
-                                <rect key="frame" x="25" y="447.5" width="325" height="26.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="25" y="447.5" width="325" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.1333333333" blue="0.68235294120000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAv-Xj-PYi">
+                                <rect key="frame" x="25" y="487" width="325" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" red="0.64313725489999995" green="0.54901960780000003" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-51-AVu">
-                                <rect key="frame" x="95.5" y="504.5" width="183" height="30"/>
+                                <rect key="frame" x="96" y="564" width="183" height="30"/>
                                 <state key="normal" title="View Classification Results"/>
                                 <connections>
                                     <action selector="viewClassificationResults:" destination="BYZ-38-t0r" eventType="touchUpInside" id="14a-q4-uTr"/>
@@ -38,9 +45,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sfl-51-AVu" firstAttribute="top" secondItem="3Eh-X9-FnZ" secondAttribute="bottom" constant="30.5" id="1cM-SW-EZi"/>
+                            <constraint firstItem="lAv-Xj-PYi" firstAttribute="firstBaseline" secondItem="3Eh-X9-FnZ" secondAttribute="baseline" constant="39.5" id="6el-g1-5mj"/>
                             <constraint firstItem="k0z-WA-1Gu" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="HK2-bg-c3k"/>
+                            <constraint firstItem="lAv-Xj-PYi" firstAttribute="leading" secondItem="3Eh-X9-FnZ" secondAttribute="leading" id="HhK-wp-gpH"/>
                             <constraint firstItem="3Eh-X9-FnZ" firstAttribute="top" secondItem="k0z-WA-1Gu" secondAttribute="bottom" constant="50" id="Iro-dh-aLT"/>
+                            <constraint firstItem="lAv-Xj-PYi" firstAttribute="trailing" secondItem="3Eh-X9-FnZ" secondAttribute="trailing" id="J4a-Wq-acz"/>
+                            <constraint firstItem="Sfl-51-AVu" firstAttribute="top" secondItem="lAv-Xj-PYi" secondAttribute="bottom" constant="55.5" id="d6w-KW-hNS"/>
                             <constraint firstItem="3Eh-X9-FnZ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="goR-JN-zo3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="k0z-WA-1Gu" secondAttribute="trailing" id="m5D-cm-BLn"/>
                             <constraint firstItem="3Eh-X9-FnZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="rNL-jV-FgU"/>
@@ -66,8 +76,9 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="mainClassificationLabel" destination="3Eh-X9-FnZ" id="75u-JG-DVF"/>
+                        <outlet property="coremlPredictionLabel" destination="3Eh-X9-FnZ" id="mD6-4X-c3i"/>
                         <outlet property="selectedImage" destination="k0z-WA-1Gu" id="jTz-k0-ztl"/>
+                        <outlet property="visionClassificationLabel" destination="lAv-Xj-PYi" id="s3b-Ds-RPG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -13,7 +13,9 @@ import Vision
 class ViewController: UIViewController {
 
     @IBOutlet weak var selectedImage: UIImageView!
-    @IBOutlet weak var mainClassificationLabel: UILabel!
+
+    @IBOutlet weak var coremlPredictionLabel: UILabel!
+    @IBOutlet weak var visionClassificationLabel: UILabel!
     var cObservations :[VNClassificationObservation] = []
 
     override func viewDidLoad() {
@@ -67,15 +69,12 @@ extension ViewController : UIImagePickerControllerDelegate,UINavigationControlle
 //coreML
 extension ViewController {
     func predictImageUsingSqueezenetModel(imageInPF:CVPixelBuffer) -> Void {
-        /*let model = SqueezeNet()
+        let model = SqueezeNet()
         guard let squeezeOutput = try? model.prediction(image: imageInPF) else {
             fatalError("Unexpected runtime error.")
-        }*/
-       /* let sortedClassLabelProbs = squeezeOutput.classLabelProbs.sorted { (dict1,dict2) -> Bool in
-            return dict1.value > dict2.value
-        }*/
-        //mainClassificationLabel.text = squeezeOutput.classLabel;
-        //print("sorted lables \(sortedClassLabelProbs)")
+        }
+        coremlPredictionLabel.text = "\(squeezeOutput.classLabel) Confidence : \(squeezeOutput.classLabelProbs[squeezeOutput.classLabel]!)";
+//        print("sorted lables \(sortedClassLabelProbs)")
     }
 }
 
@@ -98,7 +97,7 @@ extension ViewController {
                             return
                         }
                         let classifications = results as! [VNClassificationObservation];
-                        self.mainClassificationLabel.text = "\(classifications[0].identifier)  Confidence : \(classifications[0].confidence)"
+                        self.visionClassificationLabel.text = "\(classifications[0].identifier)  Confidence : \(classifications[0].confidence)"
                         self.cObservations.removeAll()
                         self.cObservations.append(contentsOf: classifications)
                     }
